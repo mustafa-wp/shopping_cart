@@ -47,6 +47,10 @@ a#user {
   color: white;
   text-decoration: none;
 }
+a#logOut {
+    color: white;
+    text-decoration: none;
+}
 
 ul#user_info {
   list-style: none;
