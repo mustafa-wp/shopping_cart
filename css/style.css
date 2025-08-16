@@ -51,7 +51,32 @@ a#logOut {
     color: white;
     text-decoration: none;
 }
+.logo-img {
+  height: 5rem;       /* ارتفاع اللوجو */
+  width: auto;        /* يحافظ على التناسب */
+  display: block;
+  text-align: center;
+  width: 7rem;
+}
+.brand {
+  display: inline-block;
+}
 
+ .logo-img:hover {
+    -webkit-animation: blink-1 0.6s both;
+    animation: blink-1 0.6s both;
+}
+@-webkit-keyframes blink-1 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 ul#user_info {
   list-style: none;
   color: #fff;
