@@ -15,6 +15,6 @@ registerBtn.addEventListener("click", function (e) {
 
     setTimeout(() => {
       window.location = "login.html";
-    }, 1500);
+    }, 1000);
   }
 });
