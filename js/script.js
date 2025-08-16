@@ -45,7 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location = "register.html";
       }, 1500);
     });
-  } else {
-    console.error("⚠️ زرار تسجيل الخروج (#logOut) مش متوفر في الصفحة");
-  }
+  } 
 });
