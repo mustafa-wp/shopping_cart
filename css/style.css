@@ -165,6 +165,50 @@ nav li a:hover {
   color: #000;
 }
 
+ul#user_info li {
+  position: relative;
+  margin-right: 10px;
+}
+
+.badge {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  background-color: #52057b;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+#user_info .cats-products {
+    z-index: 22138;
+    position: absolute;
+    bottom: auto;
+    width: 200px;
+    transform: translate(-50%, 0);
+    background-color: #666666;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* display: none; */
+    top: 100%;
+    margin-top: 6px;
+}
+#user_info .cats-products a {
+    color: #52057b;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+}
 /**********form**************/
 
 .section-form {
@@ -320,6 +364,7 @@ img {
   color: #080808;
   border-color: #000000;
 }
+
 @media (max-width: 768px) {
   .col-md-4 {
     -ms-flex: 0 0 33.333333%;
@@ -327,7 +372,8 @@ img {
     max-width: 33.333333%;
     max-height: 410px;
   }
+
   section.section-form {
     width: 95%;
-}
+  }
 }
