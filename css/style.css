@@ -19,13 +19,14 @@ body {
 }
 
 header {
-  position: fixed;
-  height: auto;
-  background-color: #59525e;
-  padding: 10px 0;
+  position: sticky;
+  top: 0px;
+  z-index: 900;
+  padding-bottom: 20px;
+  backdrop-filter: brightness(0.4);
+  padding: 20px 0;
   width: 100%;
-  z-index: 999;
-  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
@@ -38,6 +39,8 @@ nav ul {
   display: flex;
   gap: 10px;
   list-style: none;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 nav ul#user_info {
@@ -306,11 +309,13 @@ img {
 .col-md-3 {
   margin: 10px 0;
 }
+
 .btn-success:hover {
   color: #fff;
   background-color: #59525e;
   border-color: #59525e;
 }
+
 .btn-outline-danger:hover {
   color: #080808;
   border-color: #000000;
