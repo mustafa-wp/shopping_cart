@@ -1,9 +1,20 @@
+let products = []; // global علشان addtocart تقدر توصلها
+let cartproductDom; // global
+let badgeDom; // global للبادج
+let cartMenuDom; // global للقائمة الجانبية
+let shoppingcartIcon; // global لايقونة الكارت
+
 document.addEventListener("DOMContentLoaded", () => {
   let userInfo = document.querySelector("#user_info");
   let userDom = document.querySelector("#user");
   let links = document.querySelector("#links");
 
   let username = localStorage.getItem("username");
+
+  badgeDom = document.querySelector(".badge");
+  cartproductDom = document.querySelector(".cats-products-tite");
+  cartMenuDom = document.querySelector(".cats-products");
+  shoppingcartIcon = document.querySelector(".shoppingcart");
 
   if (username) {
     if (links) links.remove();
@@ -22,14 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1500);
     });
   }
+
+  if (shoppingcartIcon) {
+    shoppingcartIcon.addEventListener("click", toggleCartMenu);
+  }
 });
 
 /**********Products************/
-
 async function fetchProducts() {
   try {
     const res = await fetch("https://fakestoreapi.com/products");
-    const products = await res.json();
+    products = await res.json(); // save in global
     const productsDiv = document.getElementById("products");
 
     products.forEach((product) => {
@@ -43,7 +57,9 @@ async function fetchProducts() {
             <p><strong>$${product.price}</strong></p>
           </div>
           <div class="actions mt-3">
-            <button onclick="checkLogedUser()" class="btn btn-success">Add to Cart</button>
+            <button onclick="checkLogedUser(${product.id}); this.classList.add('addtocart')" class="btn btn-success">
+              Add to Cart
+            </button>
             <button class="btn-heart"><i class="fa-regular fa-heart"></i></button>
           </div>
         </div>
@@ -54,15 +70,37 @@ async function fetchProducts() {
     console.error("Error fetching products:", err);
   }
 }
-
 fetchProducts();
 
 /*******checked in user*******/
-function checkLogedUser() {
+function checkLogedUser(id) {
   if (localStorage.getItem("username")) {
-    console.log("add to cart");
+    addtocart(id);
   } else {
     window.location = "register.html";
   }
 }
-// End of code
+
+/********** add to cart ***********/
+function addtocart(id) {
+  let chosenItem = products.find((item) => item.id === id);
+  if (chosenItem && cartproductDom) {
+    let p = document.createElement("p");
+    p.textContent = chosenItem.title;
+    cartproductDom.appendChild(p);
+
+    let cartproductLength = document.querySelectorAll(".cats-products-tite p");
+
+    if (badgeDom) {
+      badgeDom.style.display = "inline-block";
+      badgeDom.innerHTML = cartproductLength.length;
+    }
+  }
+}
+
+/********** toggle cart menu ***********/
+function toggleCartMenu() {
+  if (cartproductDom && cartproductDom.innerHTML.trim() !== "") {
+    cartMenuDom.style.display = cartMenuDom.style.display === "block" ? "none" : "block";
+  }
+}
