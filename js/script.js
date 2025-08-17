@@ -81,7 +81,7 @@ function checkLogedUser(id) {
   }
 }
 
-/********** add to cart ***********/
+/********** add to cart  ***********/
 function addtocart(id) {
   let chosenItem = products.find((item) => item.id === id);
   if (chosenItem && cartproductDom) {
