@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 /**********Products************/
 
 async function fetchProducts() {
@@ -60,7 +59,7 @@ fetchProducts();
 
 /*******checked in user*******/
 function checkLogedUser() {
-  if (localStorage.getItem('username')) {
+  if (localStorage.getItem("username")) {
     console.log("add to cart");
   } else {
     window.location = "register.html";

@@ -320,3 +320,14 @@ img {
   color: #080808;
   border-color: #000000;
 }
+@media (max-width: 768px) {
+  .col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    max-height: 410px;
+  }
+  section.section-form {
+    width: 95%;
+}
+}
